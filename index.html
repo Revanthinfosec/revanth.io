@@ -17,10 +17,375 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* About Me Section Styles */
+        .professional-tagline {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .professional-tagline p {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .professional-summary {
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+        
+        .professional-summary p {
+            margin-bottom: 1.2rem;
+            color: var(--text-light);
+        }
+        
+        .key-expertise h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .key-expertise ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .key-expertise li {
+            background: rgba(0, 180, 216, 0.1);
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.8rem;
+        }
+        
+        .key-expertise li:before {
+            content: '▹';
+            position: absolute;
+            left: 0.8rem;
+            color: var(--accent-color);
+        }
+        
+        /* Form Input Styling */
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid #444 !important;
+            border-radius: 4px;
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            font-size: 1rem;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            caret-color: #00b4d8;
+            box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+        }
+        
+        /* Remove all focus/hover states */
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus,
+        .contact-form input[type="text"]:hover,
+        .contact-form input[type="email"]:hover,
+        .contact-form textarea:hover,
+        .contact-form input[type="text"]:active,
+        .contact-form input[type="email"]:active,
+        .contact-form textarea:active {
+            outline: none !important;
+            border: 1px solid #444 !important;
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+        }
+        
+        /* Fix for autofill in Chrome */
+        .contact-form input:-webkit-autofill,
+        .contact-form input:-webkit-autofill:hover, 
+        .contact-form input:-webkit-autofill:focus, 
+        .contact-form input:-webkit-autofill:active {
+            -webkit-text-fill-color: #ffffff !important;
+            -webkit-box-shadow: 0 0 0 30px #1e1e1e inset !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+        
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 180, 216, 0.2);
+        }
+        
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #888;
+            opacity: 1;
+        }
+        
+        .contact-form input:-ms-input-placeholder,
+        .contact-form textarea:-ms-input-placeholder {
+            color: #888;
+        }
+        
+        .contact-form input::-ms-input-placeholder,
+        .contact-form textarea::-ms-input-placeholder {
+            color: #888;
+        }
+        
+        /* Base Styles */
+        :root {
+            --bg-dark: #121212;
+            --bg-darker: #0a0a0a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #00b4d8;
+            --card-bg: #1e1e1e;
+            --card-hover: #2a2a2a;
+            --border-color: #333;
+            --section-spacing: 5rem 0;
         }
 
+        /* Landing Page Styles */
+        #landing-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.8s ease-out;
+            overflow: hidden;
+        }
+
+        .landing-content {
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        #landing-page h1 {
+            font-size: 4rem;
+            margin: 0 0 2.5rem 0;
+            color: #ffffff;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            text-transform: none;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+            opacity: 1;
+            transform: none;
+            animation: none;
+        }
+
+        .landing-subtitle {
+            font-size: 1.5rem;
+            color: #a0a0a0;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 0.5s forwards;
+            font-style: italic;
+        }
+
+        .scroll-prompt {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.5s forwards;
+        }
+
+        .scroll-text {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .arrow-container {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .arrow-button {
+            background: transparent;
+            border: none;
+            width: 30px;
+            height: 50px;
+            border: 2px solid #00b4d8;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            animation: blink 1.2s infinite, bounce 2.5s infinite;
+        }
+
+        .arrow-button::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 8px;
+            background: #00b4d8;
+            border-radius: 2px;
+            top: 8px;
+            animation: scroll 2s infinite, dotBlink 1.2s infinite;
+        }
+        
+        .arrow-button:hover {
+            animation: blink 0.6s infinite, bounce 1.5s infinite !important;
+        }
+        
+        .arrow-button:hover::before {
+            animation: scroll 1.5s infinite, dotBlink 1s infinite !important;
+        }
+
+        .arrow-button svg {
+            width: 100%;
+            height: 100%;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(15px);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+                border-color: #00b4d8;
+            }
+            50% {
+                opacity: 0.4;
+                border-color: rgba(0, 180, 216, 0.6);
+            }
+        }
+        
+        @keyframes dotBlink {
+            0%, 100% {
+                background: #00b4d8;
+            }
+            50% {
+                background: #ffffff;
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+
+
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(-50%, 0);
+            }
+            50% {
+                transform: translate(-50%, -8px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.7;
+                box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+            }
+            50% {
+                transform: translateY(-8px) scale(1.05);
+                opacity: 1;
+                box-shadow: 0 8px 25px rgba(0, 180, 216, 0.5);
+            }
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 0.7;
+                box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Base Body Styles */
+        body {
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-dark);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Clean layout styles */
         #header {
             background: linear-gradient(135deg, #007bff, #0056b3);
             padding: 2rem 1rem;
@@ -31,6 +396,34 @@
         #header #logo h1 {
             font-size: 2.5rem;
             margin-bottom: 0.2em;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .button, .scrolly {
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .button:hover, .scrolly:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
         }
 
         .button, .scrolly {
@@ -95,6 +488,7 @@
         footer .icons {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         footer .icons li {
@@ -112,213 +506,1129 @@
             color: #007bff;
         }
 
-        @media screen and (max-width: 768px) {
-            .col-6, .col-4 {
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            color: #310303;
+            font-weight: 600;
+            line-height: 1.3;
+            margin: 0 0 1.5rem 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin: 0 0 1.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #701010;
+        }
+
+        /* Layout */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 20px;
+        }
+
+        .main-section {
+            padding: var(--section-spacing);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .main-section:last-child {
+            border-bottom: none;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .connect-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .connect-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .connect-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--accent-color);
+            border-radius: 50px;
+        }
+
+        .connect-links a:hover {
+            background: var(--accent-color);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .connect-links .icon {
+            font-size: 1.2rem;
+        }
+        
+        section {
+            text-align: center;
+            margin: 0 auto;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        /* Cards */
+        .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem auto;
+            max-width: 1400px;
+            padding: 0 2rem;
+        }
+        
+        .item {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid #2a2a2a;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 180, 216, 0.2);
+            border-color: var(--accent-color);
+        }
+
+        .item .image {
+            display: block;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            background: #0a0a0a;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .item .image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,180,216,0.3) 100%);
+            z-index: 1;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .item:hover .image:before {
+            opacity: 0.8;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,180,216,0.4) 100%);
+        }
+
+        .item .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: all 0.5s ease;
+            opacity: 0.9;
+        }
+
+        .item:hover .image img {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .item header {
+            padding: 1.8rem;
+            text-align: left;
+            background: #1a1a1a;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item h3 {
+            color: #fff;
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .item h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .item:hover h3:after {
+            width: 80px;
+        }
+
+        .item p {
+            color: #b0b0b0;
+            margin: 0 0 1.8rem 0;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            flex-grow: 1;
+        }
+
+        .item .button {
+            display: inline-flex;
+            align-items: center;
+            background: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            align-self: flex-start;
+            text-decoration: none;
+        }
+
+        .item .button:hover {
+            background: var(--accent-color);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+        }
+
+        .item .button:hover {
+            background: var(--accent-color);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-darker);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer .icons {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        footer .icons a {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Navigation Styles */
+        #main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        #main-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .nav-left {
+            display: flex;
+            gap: 3rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        #main-nav .container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
+            gap: 0.3rem;
+        }
+
+        .nav-link i {
+            font-size: 1.2rem;
+        }
+
+        .nav-link span {
+            font-size: 0.8rem;
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            background: rgba(0, 180, 216, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.2);
+        }
+
+        .nav-link i {
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover i {
+            transform: scale(1.1);
+        }
+
+        /* Social Icons */
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-light);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .social-icon:hover {
+            background: var(--accent-color);
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+            border-color: var(--accent-color);
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(0, 180, 216, 0.2);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-status {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .form-status.success {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+            border: 1px solid #28a745;
+            display: block;
+        }
+        
+        .form-status.error {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+            border: 1px solid #dc3545;
+            display: block;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: -2rem;
+        }
+
+        .back-top {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-top:hover {
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--bg-darker);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        footer p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        footer .icons {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        footer .icons a {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+        }
+
+        footer .icons a:hover {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 180, 216, 0.2);
+        }
+
+        a {
+                color: var(--accent-color);
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+
+            a:hover {
+                color: #701010;
+            }
+
+            /* Layout */
+            .main-content {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+            
+            section {
+                text-align: center;
+                margin: 0 auto;
+                padding: 80px 0;
+                position: relative;
+            }
+
+            /* Cards */
+            .row {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 2.5rem;
+                margin: 3rem auto;
+                max-width: 1400px;
+                padding: 0 2rem;
+            }
+            
+            .item {
+                background: #1a1a1a;
+                border-radius: 12px;
+                overflow: hidden;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+                border: 1px solid #2a2a2a;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0, 180, 216, 0.2);
+                border-color: var(--accent-color);
+            }
+
+            .item .image {
+                display: block;
+                width: 100%;
+                height: 200px;
+                overflow: hidden;
+                position: relative;
+                background: #0a0a0a;
+                border-bottom: 1px solid #2a2a2a;
+            }
+
+            .item .image:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,180,216,0.3) 100%);
+                z-index: 1;
+                opacity: 0.5;
+                transition: all 0.3s ease;
+            }
+
+            .item:hover .image:before {
+                opacity: 0.8;
+                background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,180,216,0.4) 100%);
+            }
+
+            .item .image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                transition: all 0.5s ease;
+                opacity: 0.9;
+            }
+
+            .item:hover .image img {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+
+            .item header {
+                padding: 1.8rem;
+                text-align: left;
+                background: #1a1a1a;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .item h3 {
+                color: #fff;
+                margin: 0 0 1rem 0;
+                font-size: 1.5rem;
+                font-weight: 600;
+                line-height: 1.3;
+                position: relative;
+                padding-bottom: 0.8rem;
+            }
+
+            .item h3:after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 40px;
+                height: 2px;
+                background: var(--accent-color);
+                transition: width 0.3s ease;
+            }
+
+            .item:hover h3:after {
+                width: 80px;
+            }
+
+            .item p {
+                color: #b0b0b0;
+                margin: 0 0 1.8rem 0;
+                line-height: 1.7;
+                font-size: 1.05rem;
+                flex-grow: 1;
+            }
+
+            .item .button {
+                display: inline-flex;
+                align-items: center;
+                background: transparent;
+                color: var(--accent-color);
+                border: 2px solid var(--accent-color);
+                padding: 0.7rem 1.8rem;
+                border-radius: 50px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 0.8rem;
+                transition: all 0.3s ease;
+                margin-top: auto;
+                align-self: flex-start;
+                text-decoration: none;
+            }
+
+            .item .button:hover {
+                background: var(--accent-color);
+                color: #fff;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+            }
+
+            .item .button:hover {
+                background: var(--accent-color);
+                color: #fff;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+            }
+
+            /* Footer */
+            footer {
+                background: var(--bg-darker);
+                padding: 3rem 0;
+                text-align: center;
+                border-top: 1px solid var(--border-color);
+            }
+
+            footer .icons {
+                list-style: none;
+                padding: 0;
+                margin: 2rem 0 0 0;
+                display: flex;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+            
+            .item {
+                width: 100%;
                 max-width: 100%;
-                flex: 1 1 100%;
+                margin-bottom: 2rem;
+            }
+
+            .item .image.fit {
+                height: 180px;
             }
         }
-    </style>
-</head>
-        
     </style>		
 	</head>		
 	<body class="is-preload">
-
-		<!-- Header -->
-			<div id="header">
-
-				<div class="top">
-
-					<!-- Logo -->
-						<div id="logo">
-							<h1 id="title">Revanth</h1>
-							<p>Data Analyst and Engineer</p>
-						</div>
-
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
-								<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
-								<li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
-								<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
-							</ul>
-						</nav>
-
-				</div>
-
+		<!-- Landing Page -->
+		<div id="landing-page">
+			<div class="landing-content">
+				<h1><span id="name-text">Revanth Pasam</span></h1>
+				<div class="arrow-container">
+                    <button id="landing-arrow" class="arrow-button" aria-label="Enter website"></button>
+                </div>
 			</div>
+		</div>
 
-		<!-- Main -->
+		<!-- Navigation -->
+		<nav id="main-nav" style="display: none;">
+			<div class="container">
+				<div class="nav-left">
+					<a href="#about" class="nav-link" data-section="about">
+						<i class="icon solid fa-user"></i>
+						<span>About Me</span>
+					</a>
+					<a href="#projects" class="nav-link" data-section="projects">
+						<i class="icon solid fa-code"></i>
+						<span>Projects</span>
+					</a>
+					<a href="#tableau-projects" class="nav-link" data-section="tableau-projects">
+						<i class="icon solid fa-chart-bar"></i>
+						<span>Tableau</span>
+					</a>
+					<a href="#connect" class="nav-link" data-section="connect">
+						<i class="icon solid fa-envelope"></i>
+						<span>Connect</span>
+					</a>
+				</div>
+				<div class="social-icons">
+					<a href="https://www.linkedin.com/in/revanth-pa/" target="_blank" class="social-icon" title="LinkedIn">
+						<i class="icon brands fa-linkedin-in"></i>
+					</a>
+					<a href="https://github.com/Revanthinfosec" target="_blank" class="social-icon" title="GitHub">
+						<i class="icon brands fa-github"></i>
+					</a>
+					<a href="mailto:revanthcpasam@gmail.com" class="social-icon" title="Email">
+						<i class="icon solid fa-envelope"></i>
+					</a>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Main Content -->
+		<div id="wrapper" style="display: none;">
+			<!-- Main -->
 			<div id="main">
-
-				<!-- Intro -->
-					<section id="top" class="one dark cover">
-						<div class="container">
-
-							<header>
-								<h2 class="alt">Revanth Portfolio</h2>
-								<p>“Data professional with extensive experience in data analysis, transformation, and engineering. Proficient in leveraging tools to extract insights from complex datasets and drive informed decision-making. Skilled in computer science, data manipulation, predictive analysis, data cleaning visualization, and modeling to deliver actionable recommendations. Proven ability to collaborate across teams and communicate findings effectively. Expertise in AWS, SQL, SingleStore, and PostgreSQL, demonstrating strong database management and optimization skills. Holds a master’s in information assurance.”<br /></p>
-							</header>
-
-							<footer>
-								<a href="#portfolio" class="button scrolly">Know more about me!</a>
-								
-							</footer>
-
+				<div class="main-content">
+					<!-- About Me Section -->
+					<section id="about" class="main-section">
+						<header>
+							<h2>About Me</h2>
+						</header>
+						<div class="about-content">
+							<div class="professional-tagline">
+    <p>Data Engineering Specialist | Analytics Expert | Cloud Solutions Architect</p>
+</div>
+<div class="professional-summary">
+    <p>As a results-driven data professional with extensive experience in data engineering and analytics, I specialize in designing and implementing scalable data solutions. My expertise spans the entire data lifecycle, from architecture and ETL processes to advanced analytics and visualization.</p>
+    <p>Proficient in Python, SQL, and modern cloud platforms, I excel at transforming complex data challenges into strategic opportunities. My work consistently delivers measurable business impact through data-driven decision making and optimized data infrastructure.</p>
+</div>
+<div class="key-expertise">
+    <h3>Core Competencies:</h3>
+    <ul>
+        <li>Data Pipeline Development & Optimization</li>
+        <li>Cloud Data Architecture (AWS/GCP/Azure)</li>
+        <li>Big Data Technologies & Distributed Systems</li>
+        <li>Business Intelligence & Analytics</li>
+        <li>Machine Learning Implementation</li>
+    </ul>
+</div>
 						</div>
 					</section>
 
-<!-- Portfolio -->
-<section id="portfolio" class="two">
-    <div class="container">
+					<!-- Projects Section -->
+					<section id="projects" class="main-section">
+						<header>
+							<h2>Projects</h2>
+						</header>
 
-        <header>
-            <h2>Projects</h2>
-        </header>
-        <p>Welcome to my portfolio! I'm Revanth, a Data Engineer based in the United States, and I am open to relocation as required. With software engineering, data analysis, and cloud technologies expertise, I'm here to showcase my projects and skills. Let's explore the world of data together. Here are some projects for you to check out!</p>
-        <div class="row">
-            <div class="col-6 col-12-mobile"> <!-- Splitting the screen equally -->
-                <article class="item">
-                    <a href="#" class="image fit"><img src="images/pic02.png" alt="" /></a>
-                    <header>
-                        <h3 style="color: Black; font-weight: bold;">Data Cleaning Project using pandas</h3>
-                        <p>Worked extensively with large databases, optimizing data quality by eliminating duplicate and null values, accounting for approximately 30% of the dataset. Employed lambda functions and the Pandas library for efficient data cleaning, ensuring that the data is prepared for analysis and visualization by the data analysis team or other stakeholders.</p>
-                        <a href="https://github.com/Revanthinfosec/DataCleaning/blob/main/Data%20Cleaning%20project%20using%20pandas%20and%20lambdas.ipynb" class="button scrolly">Go to my repo</a>
-                    </header>
-                </article>
-                <article class="item">
-                    <a href="#" class="image fit"><img src="https://s36394.pcdn.co/wp-content/uploads/2021/02/snowflake-software-logo.jpg" alt="" /></a>
-                    <header>
-                        <h3 style="color: Black; font-weight: bold;">From AWS to Snowflake: Streamlining Data Warehousing & Analytics</h3>
-                        <p>Demonstrating the seamless transfer and analysis of AWS data in Snowflake, this project establishes efficient data pipelines, transforming raw data into actionable insights.</p>
-                        <a href="https://github.com/Revanthinfosec/snowflake" class="button scrolly">Go to my repo</a>
-                    </header>
-                </article>
-            </div>
-            <div class="col-6 col-12-mobile"> <!-- Splitting the screen equally -->
-                <article class="item">
-                    <a href="#" class="image fit"><img src="https://www.amarinfotech.com/wp-content/uploads/2020/04/Web-Scraping.jpg" alt="" /></a>
-                    <header>
-                        <h3 style="color: black; font-weight: bold;" >Webscrapping</h3>
-                        <p>In this project, I developed a web scraping tool using Python to extract product information from Amazon, focusing on a specific item: the Russell Athletic Men's Dri-Power Short Sleeve Tee. By leveraging BeautifulSoup for parsing HTML and requests for fetching web pages, I automated the process of retrieving the product title and price. Additionally, I implemented a CSV file to store the data, enabling continuous monitoring of price changes over time.</p>
-                        <a href="https://github.com/Revanthinfosec/Webscrapping-amazon.git" class="button scrolly" >Go to my repo</a>
-                    </header>
-                </article>
-                <article class="item">
-                    <a href="#" class="image fit"><img src="https://www.jaspersoft.com/content/dam/jaspersoft/images/graphics/infographics/pie-chart-example.svg" alt="" /></a>
-                    <header>
-                        <h3 style="color: black; font-weight: bold;" >Analyzing Walmart Sales Data: Insights and Trends from Transaction Records</h3>
-                        <p>This project involves managing sales data from Walmart in a MySQL database. Detailed transaction information is stored, including product details, customer demographics, and payment methods. Feature engineering techniques are applied to derive additional insights, and various queries are executed to analyze sales trends and patterns.</p>
-                        <a href ="https://github.com/Revanthinfosec/SQLforDataAnalysis.git" class="button scroll" >Go to my repo</a>
-                    </header>
-                </article>
-            </div>
 
-        </div>
-    </div>
-</section>
 
-							
+							<div class="row">
+								<article class="item">
+									<a href="#" class="image fit">
+										<img src="https://miro.medium.com/v2/resize:fit:1200/1*YFqtFtrOaXm02FTSeZ9pjA.png" alt="Data Cleaning with Pandas" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/00b4d8?text=Data+Cleaning+with+Pandas'" />
+									</a>
+									<header>
+										<h3>Data Cleaning with Pandas</h3>
+										<p>Optimized data quality by eliminating 30% of duplicate and null values in large databases using Python's Pandas library and lambda functions.</p>
+										<a href="https://github.com/Revanthinfosec/DataCleaning/blob/main/Data%20Cleaning%20project%20using%20pandas%20and%20lambdas.ipynb" class="button">View Project</a>
+									</header>
+								</article>
 
-<!-- Tableau Projects -->
-        <section id="tableau" class="three">
+								<article class="item">
+									<a href="#" class="image fit">
+										<img src="https://www.crn.com/news/cloud/media_1dd68c49b7dee3be3c2a9aaf4a72383a4193cf782.jpeg" alt="AWS to Snowflake Integration" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/00b4d8?text=AWS+Snowflake+Integration'" />
+									</a>
+									<header>
+										<h3>AWS to Snowflake</h3>
+										<p>Established efficient data pipelines for seamless transfer and analysis of AWS data in Snowflake, transforming raw data into business insights.</p>
+										<a href="https://github.com/Revanthinfosec/snowflake" class="button">View Project</a>
+									</header>
+								</article>
+
+								<article class="item">
+									<a href="#" class="image fit">
+										<img src="https://hasdata.com/_astro/preview.CEXhBcqA.jpg" alt="Amazon Web Scraping" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/00b4d8?text=Amazon+Web+Scraping'" />
+									</a>
+									<header>
+										<h3>Amazon Web Scraping</h3>
+										<p>Developed a Python web scraping tool using BeautifulSoup to monitor product prices on Amazon with automated data collection and analysis.</p>
+										<a href="https://github.com/Revanthinfosec/Webscrapping-amazon.git" class="button">View Project</a>
+									</header>
+								</article>
+
+								<article class="item">
+									<a href="#" class="image fit">
+										<img src="https://0901.static.prezi.com/preview/v2/a3h4j6leyhsfbwx3govs4obwb36jc3sachvcdoaizecfr3dnitcq_3_0.png" alt="Walmart Sales Analysis" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/00b4d8?text=Walmart+Sales+Analysis'" />
+									</a>
+									<header>
+										<h3>Walmart Sales Analysis</h3>
+										<p>Managed and analyzed Walmart sales data in MySQL, applying feature engineering and SQL queries to uncover sales trends and patterns.</p>
+										<a href="https://github.com/Revanthinfosec/SQLforDataAnalysis.git" class="button">View Project</a>
+									</header>
+								</article>
+							</div>
+						</section>
+
+						<!-- Tableau Projects Section -->
+						<section id="tableau-projects" class="main-section">
+							<header>
+								<h2>Tableau Projects</h2>
+							</header>
+							<div class="row">
+								<article class="item">
+									<a href="#" class="image fit">
+										<img src="https://artofvisualization.s3.amazonaws.com/uploads/10-practical-tableau-projects-for-skills-polishing-01-min.png" alt="King County Housing Analysis" />
+									</a>
+									<header>
+										<h3>King County Housing Analysis</h3>
+										<p>Interactive Tableau dashboard analyzing King County real estate data with multiple visualization types including line charts, maps, and heatmaps. Features interactive filters for dynamic data exploration and trend analysis.</p>
+										<a href="https://public.tableau.com/app/profile/revanth.pasam/viz/Newyorkkingcountydashboard/KINGCOUNTYHOUSESALE" class="button">View Dashboard</a>
+									</header>
+								</article>
+
+								<article class="item">
+									<a href="#" class="image fit">
+										<img src="https://www.projectmanager.com/wp-content/uploads/2023/10/Project-Dashboard-Template-Excel-image.png" alt="Airbnb Market Analysis" />
+									</a>
+									<header>
+										<h3>Airbnb Market Analysis</h3>
+										<p>Comprehensive analysis of Airbnb listing data to identify optimal rental times, pricing strategies, and high-performing locations. The dashboard provides actionable insights for both property owners and renters.</p>
+										<a href="https://public.tableau.com/app/profile/revanth.pasam/viz/AirbnbProjectfor2016Data/Dashboard1" class="button">View Dashboard</a>
+									</header>
+								</article>
+							</div>
+						</section>
+
+						<!-- Connect Section -->
+						<section id="connect" class="main-section">
+							<header>
+								<h2>Get In Touch</h2>
+								<p>Have a question or want to work together? Send me a message!</p>
+							</header>
+							<div class="contact-form">
+								<form id="contactForm" onsubmit="return sendEmail(this);">
+									<div class="form-group">
+										<label for="name">Name</label>
+										<input type="text" id="name" name="name" required>
+									</div>
+									<div class="form-group">
+										<label for="email">Email</label>
+										<input type="email" id="email" name="email" required>
+									</div>
+									<div class="form-group">
+										<label for="subject">Subject</label>
+										<input type="text" id="subject" name="subject" required>
+									</div>
+									<div class="form-group">
+										<label for="message">Message</label>
+										<textarea id="message" name="message" rows="5" required></textarea>
+									</div>
+									<button type="submit" class="button">Send Message</button>
+								</form>
+								<div id="form-status" class="form-status"></div>
+							</div>
+                            <div class="back-top">
+                                <a href="#">Back to Top</a>
+                            </div>
+						</section>
+
+					</div>
+				</div>
+			</div>
+
+        <footer>
             <div class="container">
-                <header>
-                    <h2>My Tableau Projects</h2>
-                </header>
-                <div class="row">
-                    <div class="col-4 col-12-mobile">
-                        <article class="item">
-                            <a href="#" class="image fit"><img src="https://cdn.technologyadvice.com/wp-content/uploads/2020/01/How-To-Use-Tableau-For-Project-Management.jpeg" alt="" /></a>
-                            <header>
-                                <h3 style="color: black; font-weight: bold;">Sales Analysis Project</h3>
-                                <p>This project focused on creating a visually appealing Tableau dashboard with effective data visualization for King County house sales. The goal was to provide an insightful analysis of the housing market by showing how to create various visuals like line charts, maps, histograms, and heatmaps.</p>
-                                <a href="https://public.tableau.com/app/profile/revanth.pasam/viz/Homework1_16660635777110/Productstofocus" class="button scrolly">View Dashboard</a>
-                            </header>
-                        </article>
-                    </div>
-
-                    <div class="col-4 col-12-mobile">
-                        <article class="item">
-                            <a href="#" class="image fit"><img src="https://artofvisualization.s3.amazonaws.com/uploads/10-practical-tableau-projects-for-skills-polishing-01-min.png" alt="" /></a>
-                            <header>
-                                <h3 style="color: black; font-weight: bold;">House rates in King County Project</h3>
-                                <p>This project aimed to provide an insightful analysis of King County house sales through a visually appealing Tableau dashboard. The dashboard included various visualizations like line charts, maps, histograms, and heatmaps, along with interactive filters for easy data exploration.</p>
-                                <a href="https://public.tableau.com/app/profile/revanth.pasam/viz/Newyorkkingcountydashboard/KINGCOUNTYHOUSESALE" class="button scrolly">View Dashboard</a>
-                            </header>
-                        </article>
-                    </div>
-
-                    <div class="col-4 col-12-mobile">
-                        <article class="item">
-                            <a href="#" class="image fit"><img src="https://www.projectmanager.com/wp-content/uploads/2023/10/Project-Dashboard-Template-Excel-image.png" alt="" /></a>
-                            <header>
-                                <h3 style="color: black; font-weight: bold;">Airbnb Project</h3>
-                                <p>This project involved extensive analysis of the Airbnb dataset using Tableau tools to visualize important findings. It included various stages such as identifying the best rental times and highest-performing zip codes, aiming to provide stakeholders with practical insights for data-driven decision-making.</p>
-                                <a href="https://public.tableau.com/app/profile/revanth.pasam/viz/AirbnbProjectfor2016Data/Dashboard1" class="button scrolly">View Dashboard</a>
-                            </header>
-                        </article>
-                    </div>
-                </div>
+                <p>&copy; 2023 Revanth Pasam. All rights reserved.</p>
+                <ul class="icons">
+                    <li><a href="https://www.linkedin.com/in/revanth-pa/" class="icon brands fa-linkedin-in" target="_blank"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://github.com/Revanthinfosec" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                    <li><a href="mailto:revanthcpasam@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                </ul>
             </div>
-        </section>
-<!-- About Me -->
-<section id="about" class="three">
-	<div class="container">
+        </footer>
 
-		<header>
-			<h2>About Me</h2>
-		</header>
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
 
-		<p>
-			"Data engineer extraordinaire with a knack for turning raw data into actionable insights! 
-			With over four years of experience in designing and optimizing data pipelines,
-			 I'm your go-to guru for Python, SQL, AWS, and data visualization tools like Tableau and Power BI. 
-			 Let's turn your data dreams into reality!</p>
-	</div>
-</section>
-				<!-- Contact -->
-					
-<section id="contact" class="four">
-    <div class="container">
-        <header>
-            <h2>Contact / Hire me</h2>
-        </header>
-        <p>Welcome to Revanth's Data Engineering Hub! With over four years of experience, I specialize in designing and optimizing data pipelines, conducting insightful analysis, and leveraging cutting-edge technologies. Open to new opportunities, I thrive on solving complex problems and delivering impactful solutions. Let's connect and harness the power of data to drive success!</p>
-        <div class="row">
-            <div class="col-12">
-                <p><strong>Email: prevanth.data@gmail.com</strong></p>
-            </div>
-        </div>
-    </div>
-</section>
-			</div>
-		
-		
-		<!-- Social Media Icons at the Bottom -->
-		<footer>
-			<div class="container">
-				<ul class="icons">
-					<li><a href="https://www.linkedin.com/in/revanth-pa/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-					<li><a href="https://github.com/Revanthinfosec" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-					<li><a href="https://linktr.ee/revanthp" class="icon solid fa-link"><span class="label">Linktree</span></a></li>
-					<li><a href="mailto:revanthcpasam@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-				</ul>
-			</div>
-		</footer>
-		
+	        <script>
+        // Initialize landing page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const landingPage = document.getElementById('landing-page');
+            const wrapper = document.getElementById('wrapper');
+            const mainNav = document.getElementById('main-nav');
+            const landingArrow = document.querySelector('.arrow-button');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const backToTop = document.querySelector('.back-top');
+            let currentSection = 'about';
+            
+            // Function to update active navigation link
+            function updateActiveNav() {
+                const scrollPosition = window.scrollY + 100;
+                document.querySelectorAll('section[id]').forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        if (sectionId !== currentSection) {
+                            currentSection = sectionId;
+                            navLinks.forEach(link => {
+                                link.classList.remove('active');
+                                if (link.getAttribute('data-section') === sectionId) {
+                                    link.classList.add('active');
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+            
+            // Initialize page state
+            function initPage() {
+                // Hide main content initially
+                wrapper.style.display = 'none';
+                mainNav.style.display = 'none';
+                
+                // Style landing page text
+                const nameText = document.getElementById('name-text');
+                if (nameText) {
+                    nameText.style.color = '#ffffff';
+                    nameText.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.3)';
+                }
+            }
+            
+            // Handle landing page click to reveal main content
+            function initLandingPage() {
+                if (landingArrow) {
+                    landingArrow.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        if (landingPage) {
+                            landingPage.style.opacity = '0';
+                            
+                            setTimeout(function() {
+                                landingPage.style.display = 'none';
+                                wrapper.style.display = 'block';
+                                mainNav.style.display = 'flex';
+                                document.body.className = document.body.className.replace('is-preload', '');
+                                window.scrollTo(0, 0);
+                                updateActiveNav();
+                            }, 500);
+                        }
+                    });
+                }
+            }
+            
+            // Initialize navigation
+            function initNavigation() {
+                // Handle navigation link clicks
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetSection = document.querySelector(targetId);
+                        
+                        if (targetSection) {
+                            window.scrollTo({
+                                top: targetSection.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                            
+                            navLinks.forEach(nav => nav.classList.remove('active'));
+                            this.classList.add('active');
+                            currentSection = this.getAttribute('data-section');
+                        }
+                    });
+                });
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+                // Back to top button
+                if (backToTop) {
+                    backToTop.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        navLinks.forEach(nav => nav.classList.remove('active'));
+                        const aboutLink = document.querySelector('.nav-link[data-section="about"]');
+                        if (aboutLink) aboutLink.classList.add('active');
+                        currentSection = 'about';
+                    });
+                }
+            }
+            
+            // Initialize all components
+            initPage();
+            initLandingPage();
+            initNavigation();
+            
+            // Set up scroll listener and initial state
+            window.addEventListener('scroll', updateActiveNav);
+            updateActiveNav();
+        
+        // Add EmailJS script
+        (function() {
+            emailjs.init("YOUR_EMAILJS_USER_ID"); // You'll need to replace this with your actual EmailJS user ID
+        })();
 
-	</body>
+        // Contact form handling with EmailJS
+        function sendEmail(contactForm) {
+            const formStatus = document.getElementById('form-status');
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            
+            // Clear previous status
+            formStatus.textContent = '';
+            formStatus.className = 'form-status';
+            
+            try {
+                // Validate form
+                const name = contactForm.name.value.trim();
+                const email = contactForm.email.value.trim();
+                const message = contactForm.message.value.trim();
+                
+                if (!name || !email || !message) {
+                    throw new Error('Please fill in all required fields');
+                }
+                
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    throw new Error('Please enter a valid email address');
+                }
+                
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+                
+                // Send email using EmailJS
+                emailjs.send("YOUR_EMAILJS_SERVICE_ID", "YOUR_EMAILJS_TEMPLATE_ID", {
+                    from_name: name,
+                    from_email: email,
+                    message: message
+                })
+                .then(function(response) {
+                    formStatus.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+                    formStatus.className = 'form-status success';
+                    contactForm.reset();
+                }, function(error) {
+                    throw new Error('Failed to send message');
+                });
+                
+                return false; // Prevent form from submitting normally
+                
+            } catch (error) {
+                formStatus.textContent = error.message || 'Oops! There was a problem sending your message. Please try again later or email me directly at revanthcpasam@gmail.com';
+                formStatus.className = 'form-status error';
+                console.error('Form Error:', error);
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+                return false;
+            }
+        }
+    });
+</script>
+</body>
 </html>
-
