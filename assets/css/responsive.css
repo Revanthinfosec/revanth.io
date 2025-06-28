@@ -1,0 +1,160 @@
+/* Responsive Breakpoints */
+:root {
+    --mobile: 480px;
+    --tablet: 768px;
+    --desktop: 1024px;
+}
+
+/* Base Responsive Styles */
+html {
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* Mobile First Approach */
+.container {
+    width: 100%;
+    padding: 0 1.2rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Header and Navigation */
+#header {
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Main Content */
+#main {
+    padding-top: 80px; /* Space for fixed header */
+    overflow: hidden;
+}
+
+/* Sections */
+section {
+    padding: 3rem 0;
+    position: relative;
+}
+
+/* Tablet Styles (768px and up) */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 90%;
+        padding: 0 2rem;
+    }
+    
+    .key-expertise ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    #landing-page h1 {
+        font-size: 3rem;
+    }
+    
+    /* Adjust header for tablet */
+    #header {
+        padding: 1.5rem 0;
+    }
+    
+    /* Adjust main content spacing */
+    #main {
+        padding-top: 100px;
+    }
+}
+
+/* Desktop Styles (1024px and up) */
+@media screen and (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+        padding: 0 2.5rem;
+    }
+    
+    .key-expertise ul {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile-specific adjustments */
+@media screen and (max-width: 767px) {
+    html {
+        font-size: 15px;
+        -webkit-text-size-adjust: 100%;
+    }
+    
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .container {
+        padding: 0 1.2rem;
+    }
+    
+    #landing-page {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #landing-page h1 {
+        font-size: 2.2rem;
+        line-height: 1.3;
+        padding: 0 1rem;
+        text-align: center;
+    }
+    
+    .professional-tagline p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+    
+    .key-expertise li {
+        font-size: 0.95rem;
+        padding: 0.8rem 1rem 0.8rem 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    #header {
+        padding: 0.8rem 0;
+    }
+    
+    #main {
+        padding-top: 70px;
+    }
+    
+    section {
+        padding: 2.5rem 0;
+    }
+    
+    .item {
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+    
+    .key-expertise ul {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    /* Fix for mobile scrolling */
+    .main-content {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    /* Fix for fixed header spacing */
+    #about {
+        scroll-margin-top: 80px;
+    }
+}
