@@ -119,6 +119,29 @@ section {
     }
 }
 
+/* R Logo Button */
+.r-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin-right: 1rem;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.r-logo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 180, 216, 0.3);
+}
+
 /* Mobile-specific adjustments */
 @media screen and (max-width: 767px) {
     /* Navigation */
@@ -140,6 +163,15 @@ section {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none; /* Firefox */
         gap: 1rem;
+        align-items: center;
+    }
+    
+    /* R Logo on mobile */
+    .r-logo {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+        margin-right: 0.5rem;
     }
     
     #main-nav .container::-webkit-scrollbar {

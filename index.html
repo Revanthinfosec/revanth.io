@@ -1270,6 +1270,7 @@
 		<!-- Navigation -->
 		<nav id="main-nav" style="display: none;">
 			<div class="container">
+				<a href="#" class="r-logo">R</a>
 				<div class="nav-left">
 					<a href="#about" class="nav-link" data-section="about">
 						<i class="icon solid fa-user"></i>
@@ -1524,6 +1525,22 @@
             
             // Initialize navigation
             function initNavigation() {
+                // Handle R logo click (scroll to top)
+                const rLogo = document.querySelector('.r-logo');
+                if (rLogo) {
+                    rLogo.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        navLinks.forEach(nav => nav.classList.remove('active'));
+                        const aboutLink = document.querySelector('.nav-link[data-section="about"]');
+                        if (aboutLink) aboutLink.classList.add('active');
+                        currentSection = 'about';
+                    });
+                }
+
                 // Handle navigation link clicks
                 navLinks.forEach(link => {
                     link.addEventListener('click', function(e) {
