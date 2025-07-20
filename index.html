@@ -786,6 +786,32 @@
             box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
         }
 
+        /* Tech Stack Tags */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background: rgba(0, 180, 216, 0.1);
+            color: var(--accent-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: var(--accent-color);
+            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 180, 216, 0.3);
+        }
+
         /* Footer */
         footer {
             background: var(--bg-darker);
@@ -1280,6 +1306,10 @@
 						<i class="icon solid fa-code"></i>
 						<span>Projects</span>
 					</a>
+					<a href="#llm-projects" class="nav-link" data-section="llm-projects">
+						<i class="icon solid fa-robot"></i>
+						<span>AI/ML</span>
+					</a>
 					<a href="#tableau-projects" class="nav-link" data-section="tableau-projects">
 						<i class="icon solid fa-chart-bar"></i>
 						<span>Tableau</span>
@@ -1336,54 +1366,98 @@
 							<h2>Projects</h2>
 						</header>
 
+						<div class="row">
+							<article class="item">
+								<a href="#" class="image fit">
+									<img src="https://miro.medium.com/v2/resize:fit:1200/1*YFqtFtrOaXm02FTSeZ9pjA.png" alt="Data Cleaning with Pandas" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/00b4d8?text=Data+Cleaning+with+Pandas'" />
+								</a>
+								<header>
+									<h3>Data Cleaning with Pandas</h3>
+									<p>Optimized data quality by eliminating 30% of duplicate and null values in large databases using Python's Pandas library and lambda functions.</p>
+									<div class="tech-stack">
+										<span class="tech-tag">Python</span>
+										<span class="tech-tag">Pandas</span>
+										<span class="tech-tag">Lambda Functions</span>
+									</div>
+									<a href="https://github.com/Revanthinfosec/DataCleaning/blob/main/Data%20Cleaning%20project%20using%20pandas%20and%20lambdas.ipynb" class="button">View Project</a>
+								</header>
+							</article>
 
+							<article class="item">
+								<a href="#" class="image fit">
+									<img src="https://www.crn.com/news/cloud/media_1dd68c49b7dee3be3c2a9aaf4a72383a4193cf782.jpeg" alt="AWS to Snowflake Integration" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/00b4d8?text=AWS+Snowflake+Integration'" />
+								</a>
+								<header>
+									<h3>AWS to Snowflake</h3>
+									<p>Established efficient data pipelines for seamless transfer and analysis of AWS data in Snowflake, transforming raw data into business insights.</p>
+									<div class="tech-stack">
+										<span class="tech-tag">AWS</span>
+										<span class="tech-tag">Snowflake</span>
+										<span class="tech-tag">Data Pipelines</span>
+									</div>
+									<a href="https://github.com/Revanthinfosec/snowflake" class="button">View Project</a>
+								</header>
+							</article>
 
-							<div class="row">
-								<article class="item">
-									<a href="#" class="image fit">
-										<img src="https://miro.medium.com/v2/resize:fit:1200/1*YFqtFtrOaXm02FTSeZ9pjA.png" alt="Data Cleaning with Pandas" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/00b4d8?text=Data+Cleaning+with+Pandas'" />
-									</a>
-									<header>
-										<h3>Data Cleaning with Pandas</h3>
-										<p>Optimized data quality by eliminating 30% of duplicate and null values in large databases using Python's Pandas library and lambda functions.</p>
-										<a href="https://github.com/Revanthinfosec/DataCleaning/blob/main/Data%20Cleaning%20project%20using%20pandas%20and%20lambdas.ipynb" class="button">View Project</a>
-									</header>
-								</article>
+							<article class="item">
+								<a href="#" class="image fit">
+									<img src="https://hasdata.com/_astro/preview.CEXhBcqA.jpg" alt="Amazon Web Scraping" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/00b4d8?text=Amazon+Web+Scraping'" />
+								</a>
+								<header>
+									<h3>Amazon Web Scraping</h3>
+									<p>Developed a Python web scraping tool using BeautifulSoup to monitor product prices on Amazon with automated data collection and analysis.</p>
+									<div class="tech-stack">
+										<span class="tech-tag">Python</span>
+										<span class="tech-tag">BeautifulSoup</span>
+										<span class="tech-tag">Web Scraping</span>
+									</div>
+									<a href="https://github.com/Revanthinfosec/Webscrapping-amazon.git" class="button">View Project</a>
+								</header>
+							</article>
 
-								<article class="item">
-									<a href="#" class="image fit">
-										<img src="https://www.crn.com/news/cloud/media_1dd68c49b7dee3be3c2a9aaf4a72383a4193cf782.jpeg" alt="AWS to Snowflake Integration" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/00b4d8?text=AWS+Snowflake+Integration'" />
-									</a>
-									<header>
-										<h3>AWS to Snowflake</h3>
-										<p>Established efficient data pipelines for seamless transfer and analysis of AWS data in Snowflake, transforming raw data into business insights.</p>
-										<a href="https://github.com/Revanthinfosec/snowflake" class="button">View Project</a>
-									</header>
-								</article>
+							<article class="item">
+								<a href="#" class="image fit">
+									<img src="https://0901.static.prezi.com/preview/v2/a3h4j6leyhsfbwx3govs4obwb36jc3sachvcdoaizecfr3dnitcq_3_0.png" alt="Walmart Sales Analysis" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/00b4d8?text=Walmart+Sales+Analysis'" />
+								</a>
+								<header>
+									<h3>Walmart Sales Analysis</h3>
+									<p>Managed and analyzed Walmart sales data in MySQL, applying feature engineering and SQL queries to uncover sales trends and patterns.</p>
+									<div class="tech-stack">
+										<span class="tech-tag">MySQL</span>
+										<span class="tech-tag">SQL</span>
+										<span class="tech-tag">Feature Engineering</span>
+									</div>
+									<a href="https://github.com/Revanthinfosec/SQLforDataAnalysis.git" class="button">View Project</a>
+								</header>
+							</article>
+						</div>
+					</section>
 
-								<article class="item">
-									<a href="#" class="image fit">
-										<img src="https://hasdata.com/_astro/preview.CEXhBcqA.jpg" alt="Amazon Web Scraping" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/00b4d8?text=Amazon+Web+Scraping'" />
-									</a>
-									<header>
-										<h3>Amazon Web Scraping</h3>
-										<p>Developed a Python web scraping tool using BeautifulSoup to monitor product prices on Amazon with automated data collection and analysis.</p>
-										<a href="https://github.com/Revanthinfosec/Webscrapping-amazon.git" class="button">View Project</a>
-									</header>
-								</article>
-
-								<article class="item">
-									<a href="#" class="image fit">
-										<img src="https://0901.static.prezi.com/preview/v2/a3h4j6leyhsfbwx3govs4obwb36jc3sachvcdoaizecfr3dnitcq_3_0.png" alt="Walmart Sales Analysis" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/00b4d8?text=Walmart+Sales+Analysis'" />
-									</a>
-									<header>
-										<h3>Walmart Sales Analysis</h3>
-										<p>Managed and analyzed Walmart sales data in MySQL, applying feature engineering and SQL queries to uncover sales trends and patterns.</p>
-										<a href="https://github.com/Revanthinfosec/SQLforDataAnalysis.git" class="button">View Project</a>
-									</header>
-								</article>
-							</div>
-						</section>
+					<!-- LLMs and GenAI Projects Section -->
+					<section id="llm-projects" class="main-section">
+						<header>
+							<h2>LLMs and GenAI Projects</h2>
+						</header>
+						<div class="row">
+							<article class="item">
+								<a href="#" class="image fit">
+									<img src="https://streamlit.io/images/brand/streamlit-mark-color.png" alt="Streamlit Llama Blog Generator" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/00b4d8?text=Streamlit+Llama+Blog+Generator'" />
+								</a>
+								<header>
+									<h3>Streamlit Llama Blog Generator</h3>
+									<p>AI-powered blog writer built on LLaMA 2 and CTransformers with streaming capabilities. Features local model inference, multiple writing styles, and real-time token streaming for an enhanced user experience.</p>
+									<div class="tech-stack">
+										<span class="tech-tag">LLaMA 2</span>
+										<span class="tech-tag">CTransformers</span>
+										<span class="tech-tag">Streamlit</span>
+										<span class="tech-tag">LangChain</span>
+										<span class="tech-tag">Python</span>
+									</div>
+									<a href="https://github.com/Revanthinfosec/stream-llama-blog.git" class="button">View Project</a>
+								</header>
+							</article>
+						</div>
+					</section>
 
 						<!-- Tableau Projects Section -->
 						<section id="tableau-projects" class="main-section">
